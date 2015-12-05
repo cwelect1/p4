@@ -21,15 +21,15 @@ class CreateTestRunsTable extends Migration
 
             # The rest of the fields...
             $table->string('name');
-            $table->string('description');
-            $table->dateTime('start_date_time');
-            $table->dateTime('end_date_time');
-            $table->integer('partner_id');
-            $table->integer('application_id');
-            $table->integer('environment_id');
-            $table->integer('project_id');
-            $table->integer('sprint_id');
-            $table->integer('os_id');
+            $table->string('description')->nullable();
+            $table->dateTime('start_date_time')->nullable();
+            $table->dateTime('end_date_time')->nullable();
+            $table->integer('partner_id')->nullable();
+            $table->integer('application_id')->nullable();
+            $table->integer('environment_id')->nullable();
+            $table->integer('project_id')->nullable();
+            $table->integer('sprint_id')->nullable();
+            $table->integer('os_id')->nullable();
         });
     }
 

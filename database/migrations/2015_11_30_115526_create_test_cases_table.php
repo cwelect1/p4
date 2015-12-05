@@ -21,9 +21,14 @@ class CreateTestCasesTable extends Migration
 
             # The rest of the fields...
             $table->string('name');
-            $table->integer('tc_number');
-            $table->dateTime('start_date_time');
-            $table->dateTime('end_date_time');
+            $table->integer('tc_number')->nullable();
+            $table->dateTime('start_date_time')->nullable();
+            $table->dateTime('end_date_time')->nullable();
+            $table->integer('Status');
+            $table->string('parameters')->nullable();
+            $table->string('messages')->nullable();
+            $table->string('failure_msg')->nullable();
+
         });
     }
 

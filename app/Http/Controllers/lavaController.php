@@ -40,7 +40,8 @@ class lavaController extends Controller
                             'width' => 250,
                             'height' => 250
                         ]),
-                        'colors' => (array('CED665', 'A41034', 'FCD4A1')),
+                        'colors' => (array('368DB9', 'A41034', 'FCDC27')),
+                        //'colors' => (array('CED665', 'A41034', 'FCD4A1')),
                         'is3D' => true
                       ));
 

@@ -21,9 +21,9 @@ class CreateTestSuitesTable extends Migration
 
             # The rest of the fields...
             $table->string('name');
-            $table->integer('parent_id');
-            $table->dateTime('start_date_time');
-            $table->dateTime('end_date_time');
+            $table->integer('parent_id')->nullable();
+            $table->dateTime('start_date_time')->nullable();
+            $table->dateTime('end_date_time')->nullable();
         });
     }
 

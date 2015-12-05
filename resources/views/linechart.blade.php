@@ -4,6 +4,13 @@
     <title>Automation Reporting Tool</title>
 @stop
 
+@section('navMenu')
+    <?php
+      use App\helpers\Helper;
+      Helper::buildNavMenu();
+    ?>
+@stop
+
 @section('ChartUno')
     
 <? echo \Lava::render('PieChart', 'myPieChart', 'chart-div') ?>

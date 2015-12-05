@@ -48,7 +48,8 @@
 
     <div class="container-fluid">
       <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
+      @yield('navMenu')
+        <!--<div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
             <li class="active"><a href="#">Overview</a></li>
             <li><a href="#">Smoke Tests</a></li>
@@ -69,7 +70,7 @@
             <li><a href="">Access</a></li>
             <li><a href="">Security</a></li>
           </ul>
-        </div>
+        </div>-->
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <h1 class="page-header">Dashboard</h1>
 
@@ -106,98 +107,148 @@
             </div>-->
           </div>
 
-          <h2 class="sub-header">Section title</h2>
+          <!--<h2 class="sub-header">Section title</h2>-->
           <div class="table-responsive">
             <table class="table table-striped">
               <thead>
                 <tr>
-                  <th>#</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                  <th>Header</th>
+                  <th>Application</th>
+                  <th>Latest Run</th>
+                  <th>Test Cases</th>
+                  <th>Pass</th>
+                  <th>Fail</th>
+                  <th>Skipped</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>1,001</td>
-                  <td>Lorem</td>
-                  <td>ipsum</td>
-                  <td>adipiscing</td> 
+                  <td>MBA Grades</td>
+                  <td>11/30/2015 2:30pm</td>
+                  <td>140</td>
+                  <td>92</td> 
+                  <td>48</td> 
+                  <td>0</td> 
+                </tr>
                 <tr>
-                  <td>1,002</td>
-                  <td>amet</td>
-                  <td>consectetur</td>
-                  <td>adipiscing</td> 
+                  <td>MBA Classcards</td>
+                  <td>11/30/2015 2:30pm</td>
+                  <td>140</td>
+                  <td>92</td> 
+                  <td>48</td> 
+                  <td>0</td> 
+                </tr>
                 <tr>
-                  <td>1,003</td>
-                  <td>Integer</td>
-                  <td>nec</td>
-                  <td>odio</td>
+                  <td>Attendance Tracker</td>
+                  <td>11/30/2015 2:30pm</td>
+                  <td>140</td>
+                  <td>92</td> 
+                  <td>48</td> 
+                  <td>0</td> 
+                </tr>
                 <tr>
-                  <td>1,003</td>
-                  <td>libero</td>
-                  <td>Sed</td>
-                  <td>cursus</td>
+                  <td>Checklist</td>
+                  <td>12/1/2015 9:07am</td>
+                  <td>140</td>
+                  <td>92</td> 
+                  <td>48</td> 
+                  <td>0</td> 
+                </tr>
                 <tr>
-                  <td>1,004</td>
-                  <td>dapibus</td>
-                  <td>diam</td>
-                  <td>Sed</td>
+                  <td>Grades</td>
+                  <td>11/30/2015 2:30pm</td>
+                  <td>140</td>
+                  <td>92</td> 
+                  <td>48</td> 
+                  <td>0</td> 
+                </tr>
                 <tr>
-                  <td>1,005</td>
-                  <td>Nulla</td>
-                  <td>quis</td>
-                  <td>sem</td>
+                  <td>Grades</td>
+                  <td>11/30/2015 2:30pm</td>
+                  <td>140</td>
+                  <td>92</td> 
+                  <td>48</td> 
+                  <td>0</td> 
+                </tr>
                 <tr>
-                  <td>1,006</td>
-                  <td>nibh</td>
-                  <td>elementum</td>
-                  <td>imperdiet</td>
+                  <td>Grades</td>
+                  <td>11/30/2015 2:30pm</td>
+                  <td>140</td>
+                  <td>92</td> 
+                  <td>48</td> 
+                  <td>0</td> 
+                </tr>
                 <tr>
-                  <td>1,007</td>
-                  <td>sagittis</td>
-                  <td>ipsum</td>
-                  <td>Praesent</td>
+                  <td>Grades</td>
+                  <td>11/30/2015 2:30pm</td>
+                  <td>140</td>
+                  <td>92</td> 
+                  <td>48</td> 
+                  <td>0</td> 
+                </tr>
                 <tr>
-                  <td>1,008</td>
-                  <td>Fusce</td>
-                  <td>nec</td>
-                  <td>tellus</td>
+                  <td>Grades</td>
+                  <td>11/30/2015 2:30pm</td>
+                  <td>140</td>
+                  <td>92</td> 
+                  <td>48</td> 
+                  <td>0</td> 
+                </tr>
                 <tr>
-                  <td>1,009</td>
-                  <td>augue</td>
-                  <td>semper</td>
-                  <td>porta</td>
+                  <td>Grades</td>
+                  <td>11/30/2015 2:30pm</td>
+                  <td>140</td>
+                  <td>92</td> 
+                  <td>48</td> 
+                  <td>0</td> 
+                </tr>
                 <tr>
-                  <td>1,010</td>
-                  <td>massa</td>
-                  <td>Vestibulum</td>
-                  <td>lacinia</td>
+                  <td>Grades</td>
+                  <td>11/30/2015 2:30pm</td>
+                  <td>140</td>
+                  <td>92</td> 
+                  <td>48</td> 
+                  <td>0</td> 
+                </tr>
                 <tr>
-                  <td>1,011</td>
-                  <td>eget</td>
-                  <td>nulla</td>
-                  <td>Class</td>
+                  <td>Grades</td>
+                  <td>11/30/2015 2:30pm</td>
+                  <td>140</td>
+                  <td>92</td> 
+                  <td>48</td> 
+                  <td>0</td> 
+                </tr>
                 <tr>
-                  <td>1,012</td>
-                  <td>taciti</td>
-                  <td>sociosqu</td>
-                  <td>ad</td>
+                  <td>Grades</td>
+                  <td>11/30/2015 2:30pm</td>
+                  <td>140</td>
+                  <td>92</td> 
+                  <td>48</td> 
+                  <td>0</td> 
+                </tr>
                 <tr>
-                  <td>1,013</td>
-                  <td>torquent</td>
-                  <td>per</td>
-                  <td>conubia</td>
+                  <td>Grades</td>
+                  <td>11/30/2015 2:30pm</td>
+                  <td>140</td>
+                  <td>92</td> 
+                  <td>48</td> 
+                  <td>0</td> 
+                </tr>
                 <tr>
-                  <td>1,014</td>
-                  <td>per</td>
-                  <td>inceptos</td>
-                  <td>himenaeos</td>
+                  <td>Grades</td>
+                  <td>11/30/2015 2:30pm</td>
+                  <td>140</td>
+                  <td>92</td> 
+                  <td>48</td> 
+                  <td>0</td> 
+                </tr>
                 <tr>
-                  <td>1,015</td>
-                  <td>sodales</td>
-                  <td>ligula</td>
-                  <td>in</td>
+                  <td>Grades</td>
+                  <td>11/30/2015 2:30pm</td>
+                  <td>140</td>
+                  <td>92</td> 
+                  <td>48</td> 
+                  <td>0</td> 
+                </tr>
               </tbody>
             </table>
           </div>

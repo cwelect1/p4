@@ -22,6 +22,11 @@ Route::get('/', function () {return view('home'); });
 
 Route::get('/lavacharts', 'lavaController@getChart');
 
+
+
+
+
+
 Route::get('/debug', function() {
 
     echo '<pre>';
