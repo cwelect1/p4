@@ -18,12 +18,37 @@
 
 Route::get('/working', function () {return view('working'); });
 
-Route::get('/', function () {return view('home'); });
+Route::get('/home', function () {return view('home'); });
 
-Route::get('/lavacharts', 'lavaController@getChart');
+Route::get('/', 'DashboardController@loadPage');
 
+Route::get('/lavacharts', 'lavaController@loadPage');
 
+Route::get('/smoke', 'lavaController@loadPage');
 
+Route::get('/integration', 'lavaController@loadPage');
+
+Route::get('/regression', 'lavaController@loadPage');
+
+Route::get('/partner', 'lavaController@loadPage');
+
+Route::get('/mba', 'lavaController@loadPage');
+
+Route::get('/doc', 'lavaController@loadPage');
+
+Route::get('/ee', 'lavaController@loadPage');
+
+Route::get('/er', 'lavaController@loadPage');
+
+Route::get('/finance', 'lavaController@loadPage');
+
+Route::get('/ops', 'lavaController@loadPage');
+
+Route::get('/infrastructure', 'lavaController@loadPage');
+
+Route::get('/access', 'lavaController@loadPage');
+
+Route::get('/security', 'lavaController@loadPage');
 
 
 

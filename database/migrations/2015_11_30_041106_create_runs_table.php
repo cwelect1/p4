@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTestCasesTable extends Migration
+class CreateRunsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,8 +12,8 @@ class CreateTestCasesTable extends Migration
      */
     public function up()
     {
-        // Create table.
-        Schema::create('test_cases', function (Blueprint $table) {
+        // Create the test_runs table.
+        Schema::create('runs', function (Blueprint $table) {
 
             # PK, Autoincrement and 'created_at'/'updated_at' fields.
             $table->increments('id');
@@ -21,14 +21,12 @@ class CreateTestCasesTable extends Migration
 
             # The rest of the fields...
             $table->string('name');
-            $table->integer('tc_number')->nullable();
+            $table->string('description')->nullable();
             $table->dateTime('start_date_time')->nullable();
             $table->dateTime('end_date_time')->nullable();
-            $table->integer('Status');
-            $table->string('parameters')->nullable();
-            $table->string('messages')->nullable();
-            $table->string('failure_msg')->nullable();
-
+            #$table->integer('partner_id')->nullable();
+            #$table->integer('application_id')->nullable();
+            #$table->integer('environment_id')->nullable();
         });
     }
 
@@ -40,6 +38,6 @@ class CreateTestCasesTable extends Migration
     public function down()
     {
         // Drop the table.
-        Schema::drop('test_cases');
+        Schema::drop('runs');
     }
 }

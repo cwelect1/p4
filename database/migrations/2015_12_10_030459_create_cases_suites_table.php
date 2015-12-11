@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDefectsTable extends Migration
+class CreateCasesSuitesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,16 +12,14 @@ class CreateDefectsTable extends Migration
      */
     public function up()
     {
-        // Create table.
-        Schema::create('defects', function (Blueprint $table) {
-
-            # PK, Autoincrement and 'created_at'/'updated_at' fields.
+        Schema::create('case_suite', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
 
-            # The rest of the fields...
-            $table->string('bug_number');
-            $table->string('description');
+            $table->integer('case_id')->unsigned();
+            $table->integer('suite_id')->unsigned();
+            $table->foreign('case_id')->references('id')->on('cases');
+            $table->foreign('suite_id')->references('id')->on('suites');
         });
     }
 
@@ -32,7 +30,6 @@ class CreateDefectsTable extends Migration
      */
     public function down()
     {
-        // Drop the table.
-        Schema::drop('defects');
+        Schema::drop('case_suite');
     }
 }

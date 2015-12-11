@@ -3,9 +3,18 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Khill\Lavacharts\Lavacharts; 
+use App\Helpers\Helper;
 
 class lavaController extends Controller
 {
+
+  public function loadPage(Request $request){
+
+    $this->getChart($request);
+    $result = new Helper;
+    //$result->buildNavMenuNew();
+    return View('linechart')->with('result', $result->buildNavMenuNew());
+  }
 
   public function getChart(Request $request){
 
@@ -57,7 +66,5 @@ class lavaController extends Controller
                         ]),
                         'colors' => (array('368DB9', 'A41034', 'FCDC27'))
                       ));
-
-    return View('linechart');
   }
 }

@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateOsTable extends Migration
+class CreateRunsSuitesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,15 +12,14 @@ class CreateOsTable extends Migration
      */
     public function up()
     {
-        // Create table.
-        Schema::create('os', function (Blueprint $table) {
-
-            # PK, Autoincrement and 'created_at'/'updated_at' fields.
+        Schema::create('run_suite', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
 
-            # The rest of the fields...
-            $table->string('name');
+            $table->integer('run_id')->unsigned();
+            $table->integer('suite_id')->unsigned();
+            $table->foreign('run_id')->references('id')->on('runs');
+            $table->foreign('suite_id')->references('id')->on('suites');
         });
     }
 
@@ -31,7 +30,6 @@ class CreateOsTable extends Migration
      */
     public function down()
     {
-        // Drop the table.
-        Schema::drop('os');
+        Schema::drop('run_suite');
     }
 }

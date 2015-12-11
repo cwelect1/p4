@@ -5,10 +5,11 @@
 @stop
 
 @section('navMenu')
-    <?php
-      use App\helpers\Helper;
-      Helper::buildNavMenu();
-    ?>
+    <?php echo $result ?>
+    <!--<?php
+      //use App\helpers\Helper;
+      //Helper::buildNavMenu();
+    ?>-->
 @stop
 
 @section('ChartUno')

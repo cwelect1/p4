@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTestSuitesTable extends Migration
+class CreateSuitesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateTestSuitesTable extends Migration
     public function up()
     {
         // Create table.
-        Schema::create('test_suites', function (Blueprint $table) {
+        Schema::create('suites', function (Blueprint $table) {
 
             # PK, Autoincrement and 'created_at'/'updated_at' fields.
             $table->increments('id');
@@ -35,6 +35,6 @@ class CreateTestSuitesTable extends Migration
     public function down()
     {
         // Drop the table.
-        Schema::drop('test_suites');
+        Schema::drop('suites');
     }
 }

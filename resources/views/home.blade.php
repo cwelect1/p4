@@ -9,3 +9,5 @@
     <li><a href="/loremipsumgen">Lorem Ipsum</a></li>
     <li><a href="/usergen">User Generator</a></li>
 @stop
+
+

@@ -1,14 +1,14 @@
-Overview:Header
-Smoke Tests:lavacharts.php
-Integration Tests:
-Regression Tests:
-Partner:Header
-MBA:
-Doctoral:
-Executive Education:
-External Relations:
-Finance:
-Operations:
-Infrastructure:Header
-Access:
-Security:
+Overview:Header-/
+Smoke Tests:smoke
+Integration Tests:integration
+Regression Tests:regression
+Partner:Header-partner
+MBA:mba
+Doctoral:doc
+Executive Education:ee
+External Relations:er
+Finance:finance
+Operations:ops
+Infrastructure:Header-infrastructure
+Access:access
+Security:security

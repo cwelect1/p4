@@ -16,7 +16,7 @@ class CreatePartnersTable extends Migration
         Schema::create('partners', function (Blueprint $table) {
 
             # PK, Autoincrement and 'created_at'/'updated_at' fields.
-            $table->increments('id');
+            $table->increments('id')->unsigned();
             $table->timestamps();
 
             # The rest of the fields...
