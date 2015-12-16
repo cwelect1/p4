@@ -5,7 +5,7 @@
 @stop
 
 @section('navMenu')
-    <?php echo $result ?>
+    <?php echo $nav ?>
     <!--<?php
       //use App\helpers\Helper;
       //Helper::buildNavMenu();
@@ -36,13 +36,54 @@
       <?php echo 'There are no test runs.' ?>
   @else
       @foreach($runs as $run)
+      <?php
+        $passed = 0;
+        $failed = 0;
+        $skipped = 0;
+        $numCases = 0;
+      ?>
+        @foreach($run->suites as $suite)
+          @foreach($suite->testcases as $testcase)
+            <!--<?php // echo 'Testcase: ' . $testcase ?>-->
+          
+          <?php $numCases++; ?>
+
+          @if($testcase->status === 1)
+            <?php $passed++; ?>
+
+          @elseif($testcase->status === 2)
+            <?php $failed++; ?>
+          
+          @elseif ($testcase->status === 3)
+            <?php $skipped++; ?>
+          
+          @endif
+          @endforeach
+        @endforeach
+        
           <tr>
               <td>{{ $run->id }}</td>
               <td>{{ $run->description }}</td>
-              <td>140</td>
-              <td>92</td> 
-              <td>48</td> 
-              <td>0</td> 
+              <td>{{ $numCases }}</td>
+              
+              @if($passed === 0)
+              <td>-</td>
+              @else
+              <td>{{ $passed }}</td>
+              @endif
+
+              @if($failed === 0)
+              <td>-</td>
+              @else
+              <td>{{ $failed }}</td>
+              @endif
+              
+              @if ($skipped === 0)
+              <td>-</td>
+              @else
+              <td>{{ $skipped }}</td>
+              @endif
+
           </tr>
       @endforeach
   @endif

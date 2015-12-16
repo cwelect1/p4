@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRunsSuitesTable extends Migration
+class CreateRunSuiteTable extends Migration
 {
     /**
      * Run the migrations.

@@ -18,8 +18,8 @@ class Suite extends Model
     return $this->belongsTo('\App\Run');
   }
 
-  public function cases(){
+  public function testcases(){
 
-    return $this->hasMany('\App\Case');
+    return $this->belongsToMany('\App\Testcase');
   }
 }

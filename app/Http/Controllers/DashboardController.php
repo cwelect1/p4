@@ -13,92 +13,81 @@ class DashboardController extends Controller
 
   public function loadPage(Request $request){
 
-    $this->getChart($request);
-    $result = new Helper;
-    //$result->buildNavMenuNew();
-    $runs = $this->getIndex($request);
-    return view('runs.index')->with(['runs' =>$runs,
-      'result' => $result->buildNavMenuNew(),
-      ]);
+    $this->getCharts();
+
+    $nav = new Helper;
+
+    $runs = $this->getRuns();
+
+    //$suites = $this->getSuites();
+
+    //var_dump($runs);
+
+    return view('runs.index')
+      ->with(['runs' =>$runs,
+              'nav' => $nav->buildNavMenu(),
+            ]);
   }
 
   /**
-  * Responds to requests to GET /
+  * Get runs within x # of days. /
   */
-  public function getIndex(Request $request) {
-      // Get all the test runs
-      // Sort in descending order by id
-      return $runs = \App\Run::where('start_date_time','>=',\Carbon\Carbon::now()->subDays(180))->orderBy('id','DESC')->get();
+  public function getRuns() {
+    // Get all the test runs
+    // Sort in descending order by id
+    $runs = new \App\Run();
+
+    return $runs->getRunsWithinXDays(90);
   }
 
-  public function getChart(){
+  /**
+  * Get suites for a set of runs. /
+  */
+  public function getSuites($runs) {
+    // Get all the test suites
+    
+    $results = new \Illuminate\Database\Eloquent\Collection;
+
+    foreach($runs as $run){
+
+      $results->add();
+
+    }
+
+    return $runs->getRunsWithinXDays(90);
+  }
+
+
+  public function getCharts(){
+
+    $chart = new Helper;
 
     $smoke = \Lava::DataTable();
     $integration = \Lava::DataTable();
     $regression = \Lava::DataTable();
 
-    $smoke->addStringColumn('Status')
+    $smoke->addStringColumn('TestResults')
             ->addNumberColumn('Percent')
             ->addRow(array('Passed', 99.55))
             ->addRow(array('Failed', 29.45))
             ->addRow(array('Skipped', 20));
 
-    $integration->addStringColumn('Status')
+    $integration->addStringColumn('TestResults')
             ->addNumberColumn('Percent')
             ->addRow(array('Passed', 90))
             ->addRow(array('Failed', 5))
             ->addRow(array('Skipped', 5));
 
-    $regression->addStringColumn('Status')
+    $regression->addStringColumn('TestTesults')
             ->addNumberColumn('Percent')
             ->addRow(array('Passed', 82))
             ->addRow(array('Failed', 18))
             ->addRow(array('Skipped', 20));
 
-    \Lava::PieChart('SmokeTestChart')
-         ->setOptions(array(
-           'datatable' => $smoke,
-           'legend' => \Lava::Legend(array(
-              'position' => 'none'
-              )),
-            'chartArea' => \Lava::ChartArea([
-                'width' => 250,
-                'height' => 250
-            ]),
-            'colors' => (array('078B3E', 'CD1E35', 'FCDC27')),
-            'is3D' => true
-          ));
 
-    \Lava::PieChart('IntegrationTestChart')
-         ->setOptions(array(
-           'datatable' => $integration,
-           'legend' => \Lava::Legend(array(
-              'position' => 'none'
-              )),
-            'chartArea' => \Lava::ChartArea([
-                'width' => 250,
-                'height' => 250
-            ]),
-            'colors' => (array('078B3E', 'CD1E35', 'FCDC27')),
-            'is3D' => true
-          ));
+    $chart->getChart('SmokeTestChart', 'PieChart', 250, 250, array('078B3E', 'CD1E35', 'FCDC27'), $smoke);
+    $chart->getChart('IntegrationTestChart', 'PieChart', 250, 250, array('078B3E', 'CD1E35', 'FCDC27'), $integration);
+    $chart->getChart('RegressionTestChart', 'PieChart', 250, 250, array('078B3E', 'CD1E35', 'FCDC27'), $regression);
 
-    \Lava::PieChart('RegressionTestChart')
-         ->setOptions(array(
-           'datatable' => $regression,
-           'legend' => \Lava::Legend(array(
-              'position' => 'none'
-              )),
-            'chartArea' => \Lava::ChartArea([
-                'width' => 250,
-                'height' => 250
-            ]),
-            'colors' => (array('078B3E', 'CD1E35', 'FCDC27')),
-            'is3D' => true
-          ));
   }
-
-  // Colors we may want to use:
-  // 'colors' => (array('078B3E', 'CD1E35', 'FCDC27')) // Traditional (Red, Yellow, Green)
-  // 'colors' => (array('368DB9', 'A41034', 'FCDC27')) // Autumnish (Red, Yellow, Blue)
 }

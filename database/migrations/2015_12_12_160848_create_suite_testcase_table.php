@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCasesSuitesTable extends Migration
+class CreateSuiteTestcaseTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,13 +12,13 @@ class CreateCasesSuitesTable extends Migration
      */
     public function up()
     {
-        Schema::create('case_suite', function (Blueprint $table) {
+        Schema::create('suite_testcase', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
 
-            $table->integer('case_id')->unsigned();
+            $table->integer('testcase_id')->unsigned();
             $table->integer('suite_id')->unsigned();
-            $table->foreign('case_id')->references('id')->on('cases');
+            $table->foreign('testcase_id')->references('id')->on('testcases');
             $table->foreign('suite_id')->references('id')->on('suites');
         });
     }
@@ -30,6 +30,6 @@ class CreateCasesSuitesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('case_suite');
+        Schema::drop('suite_testcase');
     }
 }

@@ -13,7 +13,7 @@ class lavaController extends Controller
     $this->getChart($request);
     $result = new Helper;
     //$result->buildNavMenuNew();
-    return View('linechart')->with('result', $result->buildNavMenuNew());
+    return View('linechart')->with('result', $result->buildNavMenu());
   }
 
   public function getChart(Request $request){

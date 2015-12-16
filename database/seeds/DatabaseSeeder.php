@@ -19,10 +19,11 @@ class DatabaseSeeder extends Seeder
         $this->call(EnvironmentsTableSeeder::class);
         $this->call(PartnersTableSeeder::class);
         $this->call(StatusTableSeeder::class);
-        $this->call(CasesTableSeeder::class);
         $this->call(SuitesTableSeeder::class);
+        $this->call(TestcasesTableSeeder::class);
         $this->call(RunsTableSeeder::class);
         $this->call(RunSuiteTableSeeder::class);
+        $this->call(SuiteTestcaseTableSeeder::class);
 
         Model::reguard();
     }

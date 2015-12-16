@@ -27,6 +27,13 @@ class Run extends Model
   // Relationship with Suite table.
   public function suites(){
 
-    return $this->hasMany('\App\Suite');
+    return $this->belongsToMany('\App\Suite');
   }
+
+  public function getRunsWithinXDays($days){
+
+    //return $this->where('start_date_time','>=',\Carbon\Carbon::now()->subDays($days))->with('suites')->orderBy('id','DESC')->get();
+    return $this->where('start_date_time','>=',\Carbon\Carbon::now()->subDays($days))->with('suites.testcases')->orderBy('id','DESC')->get();
+  }
+  
 }
