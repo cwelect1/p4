@@ -44,7 +44,6 @@
       ?>
         @foreach($run->suites as $suite)
           @foreach($suite->testcases as $testcase)
-            <!--<?php // echo 'Testcase: ' . $testcase ?>-->
           
           <?php $numCases++; ?>
 
@@ -66,19 +65,19 @@
               <td>{{ $run->description }}</td>
               <td>{{ $numCases }}</td>
               
-              @if($passed === 0)
+              @if($passed == 0)
               <td>-</td>
               @else
               <td>{{ $passed }}</td>
               @endif
 
-              @if($failed === 0)
+              @if($failed == 0)
               <td>-</td>
               @else
               <td>{{ $failed }}</td>
               @endif
               
-              @if ($skipped === 0)
+              @if ($skipped == 0)
               <td>-</td>
               @else
               <td>{{ $skipped }}</td>
