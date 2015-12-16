@@ -47,13 +47,13 @@
           
           <?php $numCases++; ?>
 
-          @if($testcase->status === 1)
+          @if($testcase->status == 1)
             <?php $passed++; ?>
 
-          @elseif($testcase->status === 2)
+          @elseif($testcase->status == 2)
             <?php $failed++; ?>
           
-          @elseif ($testcase->status === 3)
+          @elseif ($testcase->status == 3)
             <?php $skipped++; ?>
           
           @endif
