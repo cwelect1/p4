@@ -11,13 +11,7 @@
 |
 */
 
-Route::get('/working', function () {return view('working'); });
-
-Route::get('/home', function () {return view('home'); });
-
 Route::get('/', 'DashboardController@loadPage');
-
-Route::get('/lavacharts', 'lavaController@loadPage');
 
 Route::get('results/smoke', 'lavaController@loadPage');
 

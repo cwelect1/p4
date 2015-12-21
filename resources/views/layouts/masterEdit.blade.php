@@ -39,10 +39,7 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
             <li><a href="/">Dashboard</a></li>
-            <li><a href="/applications">Applications</a></li>
-            <li><a href="/profile">Profile</a></li>
-            <li><a href="/addEditDeleteData">Data</a></li>
-            <li><a href="/help">Help</a></li>
+            <li><a href="/applications">App Mgmt</a></li>
         </div>
       </div>
     </nav>
