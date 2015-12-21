@@ -41,9 +41,7 @@ Route::get('/infrastructure/security', 'lavaController@loadPage');
 
 Route::get('/testrun/{id?}', 'TestRunController@loadPage');
 
-// General Pages
-
-Route::get('/addEditDeleteData', 'AddEditDeleteController@loadPage');
+// CRUD Pages
 
 Route::get('/applications/create', 'ApplicationsController@getCreate');
 Route::post('/applications/create', 'ApplicationsController@postCreate');
