@@ -4,6 +4,10 @@
     <title>Automation Reporting Tool</title>
 @stop
 
+@section('PageHeading')
+    <h1 class="page-header">Dashboard</h1>
+@stop
+
 @section('navMenu')
     <?php echo $nav ?>
     <!--<?php
@@ -61,7 +65,7 @@
         @endforeach
         
           <tr>
-              <td>{{ $run->id }}</td>
+              <td><a href='/testrun/{{ $run->id }}'>{{ $run->id }}</a></td>
               <td>{{ $run->description }}</td>
               <td>{{ $numCases }}</td>
               

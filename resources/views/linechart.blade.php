@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.lavaMaster')
 
 @section('title')
     <title>Automation Reporting Tool</title>

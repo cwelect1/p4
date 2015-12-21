@@ -24,9 +24,6 @@ class CreateRunsTable extends Migration
             $table->string('description')->nullable();
             $table->dateTime('start_date_time')->nullable();
             $table->dateTime('end_date_time')->nullable();
-            #$table->integer('partner_id')->nullable();
-            #$table->integer('application_id')->nullable();
-            #$table->integer('environment_id')->nullable();
         });
     }
 

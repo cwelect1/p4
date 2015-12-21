@@ -13,15 +13,13 @@ class DashboardController extends Controller
 
   public function loadPage(Request $request){
 
-    $this->getCharts();
+    $runs = $this->getRuns();
+    
+    $testTotals = $this->getTestResultTotals($runs);
+
+    $this->getCharts($testTotals);
 
     $nav = new Helper;
-
-    $runs = $this->getRuns();
-
-    //$suites = $this->getSuites();
-
-    //var_dump($runs);
 
     return view('runs.index')
       ->with(['runs' =>$runs,
@@ -40,25 +38,7 @@ class DashboardController extends Controller
     return $runs->getRunsWithinXDays(90);
   }
 
-  /**
-  * Get suites for a set of runs. /
-  */
-  public function getSuites($runs) {
-    // Get all the test suites
-    
-    $results = new \Illuminate\Database\Eloquent\Collection;
-
-    foreach($runs as $run){
-
-      $results->add();
-
-    }
-
-    return $runs->getRunsWithinXDays(90);
-  }
-
-
-  public function getCharts(){
+  public function getCharts($testResultTotals){
 
     $chart = new Helper;
 
@@ -68,9 +48,9 @@ class DashboardController extends Controller
 
     $smoke->addStringColumn('TestResults')
             ->addNumberColumn('Percent')
-            ->addRow(array('Passed', 99.55))
-            ->addRow(array('Failed', 29.45))
-            ->addRow(array('Skipped', 20));
+            ->addRow(array('Passed', $testResultTotals['Passed']))
+            ->addRow(array('Failed', $testResultTotals['Failed']))
+            ->addRow(array('Skipped', $testResultTotals['Skipped']));
 
     $integration->addStringColumn('TestResults')
             ->addNumberColumn('Percent')
@@ -89,5 +69,52 @@ class DashboardController extends Controller
     $chart->getChart('IntegrationTestChart', 'PieChart', 250, 250, array('078B3E', 'CD1E35', 'FCDC27'), $integration);
     $chart->getChart('RegressionTestChart', 'PieChart', 250, 250, array('078B3E', 'CD1E35', 'FCDC27'), $regression);
 
+  }
+
+  /**
+  * 
+  */
+  public function getTestResultTotals($testRunData){
+
+    $totalCases = 0;
+    $totalPassed = 0;
+    $totalFailed = 0;
+    $totalSkipped = 0;
+
+    foreach($testRunData as $run){
+    
+      $passed = 0;
+      $failed = 0;
+      $skipped = 0;
+      $totalCasesPerRun = 0;
+
+      foreach($run->suites as $suite){
+        foreach($suite->testcases as $testcase){
+        
+          $totalCasesPerRun++;
+
+          if($testcase->status == 1){
+            $passed++;
+          }
+          elseif($testcase->status == 2){
+            $failed++;
+          }
+          elseif ($testcase->status == 3){
+            $skipped++;
+          }
+        }
+      }
+      $totalCases = $totalCases + $totalCasesPerRun;
+      $totalPassed = $totalPassed + $passed;
+      $totalFailed = $totalFailed + $failed;
+      $totalSkipped = $totalSkipped + $skipped;
+    }
+
+    $results = array('TotalCases' => $totalCases);
+    $results['Passed'] = $totalPassed;
+    $results['Failed'] = $totalFailed;
+    $results['Skipped'] = $totalSkipped;
+
+    return $results;
   }
 }

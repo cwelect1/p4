@@ -20,7 +20,11 @@
   </head>
 
 <body>
-
+    @if(\Session::has('flash_message'))
+    <div class='flash_message'>
+        {{ \Session::get('flash_message') }}
+    </div>
+    @endif
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -39,7 +43,6 @@
             <li><a href="/profile">Profile</a></li>
             <li><a href="/addEditDeleteData">Data</a></li>
             <li><a href="/help">Help</a></li>
-          </ul>
         </div>
       </div>
     </nav>
@@ -47,51 +50,10 @@
     <div class="container-fluid">
       <div class="row">
       @yield('navMenu')
-
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          @yield('PageHeading')
-
-          <div class="row placeholders">
-            <div class="col-xs-6 col-sm-4 placeholder">
-              <div id="chart-div"> 
-                @yield('SmokeTestChart')
-              </div>
-              <h4>Smoke Tests</h4>
-            </div>
-            <div class="col-xs-6 col-sm-4 placeholder">
-              <div id="chart2-div"> 
-                @yield('IntegrationTestChart')
-              </div>
-              <h4>Integration Tests</h4>
-            </div>
-            <div class="col-xs-6 col-sm-4 placeholder">
-              <div id="chart3-div"> 
-                @yield('RegressionTestChart')
-              </div>
-              <h4>Regression Tests</h4>
-            </div>
-          </div>
-
-          <div class="table-responsive">
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th>Run #</th>
-                  <th>Description</th>
-                  <th>Test Cases</th>
-                  <th>Pass</th>
-                  <th>Fail</th>
-                  <th>Skipped</th>
-                </tr>
-              </thead>
-              <tbody>
-              @yield('tableRow')
-              </tbody>
-            </table>
-          </div>
-        </div>
+      @yield('content')
       </div>
     </div>
+
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->

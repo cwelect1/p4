@@ -1,14 +1,15 @@
-Overview:Header-/
-Smoke Tests:smoke
-Integration Tests:integration
-Regression Tests:regression
+Dashboard:Header-/
+Smoke Tests:/results/smoke
+Integration Tests:/results/integration
+Regression Tests:/results/regression
 Partner:Header-partner
-MBA:mba
-Doctoral:doc
-Executive Education:ee
-External Relations:er
-Finance:finance
-Operations:ops
+MBA:/partner/mba
+Doctoral:/partner/doc
+Executive Education:/partner/ee
+External Relations:/partner/er
+Finance:/partner/finance
+Operations:/partner/ops
+Schoolwide:/partner/schoolwide
 Infrastructure:Header-infrastructure
-Access:access
-Security:security
+Access:/infrastructure/access
+Security:/infrastructure/security

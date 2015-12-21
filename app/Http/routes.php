@@ -11,11 +11,6 @@
 |
 */
 
-/*Route::get('/', function () {
-    return view('welcome');
-});
-*/
-
 Route::get('/working', function () {return view('working'); });
 
 Route::get('/home', function () {return view('home'); });
@@ -24,31 +19,49 @@ Route::get('/', 'DashboardController@loadPage');
 
 Route::get('/lavacharts', 'lavaController@loadPage');
 
-Route::get('/smoke', 'lavaController@loadPage');
+Route::get('results/smoke', 'lavaController@loadPage');
 
-Route::get('/integration', 'lavaController@loadPage');
+Route::get('results/integration', 'lavaController@loadPage');
 
-Route::get('/regression', 'lavaController@loadPage');
+Route::get('results/regression', 'lavaController@loadPage');
 
 Route::get('/partner', 'lavaController@loadPage');
 
-Route::get('/mba', 'lavaController@loadPage');
+Route::get('/partner/mba', 'lavaController@loadPage');
 
-Route::get('/doc', 'lavaController@loadPage');
+Route::get('/partner/doc', 'lavaController@loadPage');
 
-Route::get('/ee', 'lavaController@loadPage');
+Route::get('/partner/ee', 'lavaController@loadPage');
 
-Route::get('/er', 'lavaController@loadPage');
+Route::get('/partner/er', 'lavaController@loadPage');
 
-Route::get('/finance', 'lavaController@loadPage');
+Route::get('/partner/finance', 'lavaController@loadPage');
 
-Route::get('/ops', 'lavaController@loadPage');
+Route::get('/partner/ops', 'lavaController@loadPage');
 
 Route::get('/infrastructure', 'lavaController@loadPage');
 
-Route::get('/access', 'lavaController@loadPage');
+Route::get('/infrastructure/access', 'lavaController@loadPage');
 
-Route::get('/security', 'lavaController@loadPage');
+Route::get('/infrastructure/security', 'lavaController@loadPage');
+
+Route::get('/testrun/{id?}', 'TestRunController@loadPage');
+
+// General Pages
+
+Route::get('/addEditDeleteData', 'AddEditDeleteController@loadPage');
+
+Route::get('/applications/create', 'ApplicationsController@getCreate');
+Route::post('/applications/create', 'ApplicationsController@postCreate');
+Route::get('/applications/edit/{id?}', 'ApplicationsController@getEdit');
+Route::post('/applications/edit/{id?}', 'ApplicationsController@postEdit');
+Route::get('/applications', 'ApplicationsController@loadPage');
+Route::get('/applications/confirm-delete/{id?}', 'ApplicationsController@getConfirmDelete');
+Route::get('/applications/delete/{id?}', 'ApplicationsController@getDoDelete');
+
+Route::get('/profile', 'ProfileController@loadPage');
+
+Route::get('/help', 'HelpController@loadPage');
 
 
 

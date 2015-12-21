@@ -21,6 +21,8 @@ class CreateTestcasesTable extends Migration
 
             # The rest of the fields...
             $table->string('name');
+            $table->string('class')->nullable();
+            $table->string('method')->nullable();
             $table->integer('tc_number')->nullable();
             $table->dateTime('start_date_time')->nullable();
             $table->dateTime('end_date_time')->nullable();
@@ -40,6 +42,6 @@ class CreateTestcasesTable extends Migration
     public function down()
     {
         // Drop the table.
-        Schema::drop('cases');
+        Schema::drop('testcases');
     }
 }

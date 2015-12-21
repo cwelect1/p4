@@ -11,7 +11,6 @@ class PartnersTableSeeder extends Seeder
      */
     public function run()
     {
-
         DB::table('partners')->insert([
           'created_at' => Carbon\Carbon::now()->toDateTimeString(),
           'updated_at' => Carbon\Carbon::now()->toDateTimeString(),

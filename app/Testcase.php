@@ -9,7 +9,7 @@ class Testcase extends Model
   // Relationship with Status table.
   public function applications(){
 
-    return $this->hasOne('\App\Status');
+    return $this->hasOne('\App\Application');
   }
 
   // Relationship with Suites table.

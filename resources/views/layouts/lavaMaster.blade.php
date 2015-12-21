@@ -34,9 +34,9 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Dashboard</a></li>
-            <li><a href="#">Settings</a></li>
-            <li><a href="#">Profile</a></li>
+            <li><a href="/">Dashboard</a></li>
+            <li><a href="/applications">Applications</a></li>
+            <li><a href="/profile">Profile</a></li>
             <li><a href="/addEditDeleteData">Data</a></li>
             <li><a href="#">Help</a></li>
           </ul>

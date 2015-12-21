@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Application extends Model
 {
   // Relationship with Runs table.
-  public function runs(){
+  public function testcases(){
 
-    return $this->hasMany('\App\Run');
+    return $this->hasMany('\App\Testcase');
   }
 }
