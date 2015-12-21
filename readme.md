@@ -36,16 +36,14 @@ http://p4.corbettweinberg.me/
  - DONE - Best practices followed for coding as we've demonstrated in lectures thus far? For example:
  - DONE - P4 Planning Document thorough, complete, and turned in on time.
 
-## Above and Beyond.
- - Used Bootstrap 3 and came up with nice clean look and feel.
- - Added several options to Lorem Ipsum and User Gen pages including:
-  - Choice of output format (table vs List)
-  - Choice of the type of Lorem Ipsum to output (Sentence, Paragraph, and Words)
- - I ran out of time to add validation, but that's next (after grading).
+## Known Bugs/Future fixes/enhancements
+  - Client Side validation not implemented.
+  - Server Side validation doesn't report issues to end user.
+  - Cascading delete doesn't work (for the seeded data that has relationships). Constraint error occurs.
+  - Dashboard charts not complete. Only Smoke tests are being calculated based on actual test data. Other 2 charts are hard coded.
+  - Individual Test Runs page not finished (linked from ID on Dashboard page).
+  - Most nav links point to same placholder page. Will customize for each type (partner, infrastructure, etc...)
+  - Placeholder links in top nav go to placeholder pages.
 
-## Known Bugs
-  - Validation not implemented.
-    - Heading appears (with no results) when no value entered for Number of/Quantity.
-  - Can't see last row of result data (footer overlaps it)
-  - Background image stetches as results grow (10 results = no stretch...15+ starts to stretch)
-  - Large datasets timeout and crash. Not limiting quantity at this time.
+## Notes to TA
+ - I didn't implement authentication yet, so there is no need to login.
